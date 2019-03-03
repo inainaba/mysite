@@ -7,7 +7,7 @@ class Myinfo(models.Model):
     github = models.URLField("GitHub",null=True, blank=True)
     facebook = models.URLField("Facebook",null=True, blank=True)
     email = models.EmailField("E-mail",null=True, blank=True)
-    location = models.CharField("所在地"max_length=50)
+    location = models.CharField("所在地",max_length=50)
 
     def __str__(self):
         return self.name
@@ -26,6 +26,14 @@ class Blog(models.Model):
         return self.title
 
 
+""" ジャンル """
+class Subject(models.Model):
+    name = models.CharField("ジャンル名",max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 """ ポートフォリオページ用 """
 class Work(models.Model):
     title = models.CharField("webアプリ名",max_length=100)
@@ -35,12 +43,7 @@ class Work(models.Model):
     is_public = models.BooleanField(default=True)
     date_birth = models.DateField(auto_now_add=True)
     date_update = models.DateField(auto_now=True)
-    subject = models.ForeignKey(Subject)
+    subject = models.ForeignKey(Subject,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
-
-
-""" ジャンル """
-class Subject(models.Model):
-    name = models.CharField("ジャンル名",max_length=100)
