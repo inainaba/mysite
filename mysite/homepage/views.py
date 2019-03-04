@@ -9,6 +9,8 @@ class Top(generic.TemplateView):
 
 class Myinfo(generic.TemplateView):
     template_name = "homepage/myinfo.html"
+    model = Myinfo
+    context_object_name = "myinfo"
 
 
 class Myblog(generic.ListView):
