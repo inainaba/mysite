@@ -12,7 +12,7 @@ class Myinfo(models.Model):
     location = models.CharField("所在地",max_length=50)
     selling_point = models.CharField("アピールポイント",max_length=500)
     detail = models.TextField("いままで", null=True, blank=True)
-    picture = StdImageField("画像",upload_to='static/homepage/myinfos', blank=True, variations={
+    picture = StdImageField("画像",upload_to='media/myinfos', blank=True, variations={
         'large': (600, 400),
         'thumbnail': (100, 100, True),
         'medium': (300, 200),
@@ -29,7 +29,7 @@ class Blog(models.Model):
     is_public = models.BooleanField(default=True)
     date_birth = models.DateField(auto_now_add=True)
     date_update = models.DateField(auto_now=True)
-    picture = StdImageField("画像",upload_to='static/homepage/blogs', blank=True, variations={
+    picture = StdImageField("画像",upload_to='media/blogs', blank=True, variations={
         'large': (600, 400),
         'thumbnail': (100, 100, True),
         'medium': (300, 200),
@@ -56,7 +56,7 @@ class Work(models.Model):
     date_birth = models.DateField(auto_now_add=True)
     date_update = models.DateField(auto_now=True)
     subject = models.ForeignKey(Subject,on_delete=models.CASCADE)
-    picture = StdImageField("画像",upload_to='static/homepage/works', blank=True, variations={
+    picture = StdImageField("画像",upload_to='media/works', blank=True, variations={
         'large': (600, 400),
         'thumbnail': (100, 100, True),
         'medium': (300, 200),

@@ -10,7 +10,11 @@ class Top(generic.TemplateView):
 class Myinfo(generic.TemplateView):
     template_name = "homepage/myinfo.html"
     model = Myinfo
-    context_object_name = "myinfo"
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["myinfo"] = self.model.objects.all()[0]
+        return context
 
 
 class Myblog(generic.ListView):
