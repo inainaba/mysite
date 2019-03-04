@@ -3,6 +3,8 @@
 {% block content %}
 This is myinfo-page
 
-<h1>{{ myinfo.0 }}</h1>
+{% for idx in myinfo %}
+<p>{{ idx.name }}</p>
+{% endfor %}
 
 {% endblock %}
