@@ -8,6 +8,8 @@ class Myinfo(models.Model):
     facebook = models.URLField("Facebook",null=True, blank=True)
     email = models.EmailField("E-mail",null=True, blank=True)
     location = models.CharField("所在地",max_length=50)
+    selling_point = models.CharField("アピールポイント",max_length=500)
+    detail = models.TextField("いままで")
 
     def __str__(self):
         return self.name

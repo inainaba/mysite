@@ -13,7 +13,10 @@ class Myinfo(generic.TemplateView):
 
 class Myblog(generic.ListView):
     template_name = "homepage/myblog.html"
-
+    model = Blog
+    context_object_name = "blogs"
 
 class Works(generic.ListView):
     template_name = "homepage/works.html"
+    model = Work
+    context_object_name = "works"
