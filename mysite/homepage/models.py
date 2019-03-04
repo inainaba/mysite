@@ -9,7 +9,8 @@ class Myinfo(models.Model):
     email = models.EmailField("E-mail",null=True, blank=True)
     location = models.CharField("所在地",max_length=50)
     selling_point = models.CharField("アピールポイント",max_length=500)
-    detail = models.TextField("いままで")
+    detail = models.TextField("いままで", null=True, blank=True)
+    picture = models.ImageField(upload_to='images/', null=True, blank=True)
 
     def __str__(self):
         return self.name
