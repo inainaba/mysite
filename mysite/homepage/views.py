@@ -5,12 +5,12 @@ from .models import *
 
 class Top(generic.TemplateView):
     template_name = "homepage/top.html"
-
+    
 
 class Myinfo(generic.TemplateView):
     template_name = "homepage/myinfo.html"
     model = Myinfo
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["myinfo"] = self.model.objects.all()[0]
