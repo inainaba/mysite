@@ -9,11 +9,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.css"
-	 		integrity="sha384-CSpejLAxvQjhYnaGctk31dTIAVVJ37ll9TXZ5+siSJ/ZYHLO6/Ae3wBxMkkeePta" crossorigin="anonymous">
-	<link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.print.css"
-			integrity="sha384-z97gwhg6eih9y0LEKeeKhp3kzktXuksd8JpECb6SWwru2UVRSD3KgsyEAwCXzTb1"crossorigin="anonymous" media='print' >
-    <title>title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.css"
+        integrity="sha384-CSpejLAxvQjhYnaGctk31dTIAVVJ37ll9TXZ5+siSJ/ZYHLO6/Ae3wBxMkkeePta" crossorigin="anonymous">
+    <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.print.css"
+        integrity="sha384-z97gwhg6eih9y0LEKeeKhp3kzktXuksd8JpECb6SWwru2UVRSD3KgsyEAwCXzTb1"crossorigin="anonymous" media='print' >
+      <title>title</title>
+    {% load static %}
+    <style type="text/css">
+      body { background-image: url({% static 'homepage/b071.jpg' %});}
+    </style>
     
 </head>
 <body>
@@ -61,13 +65,18 @@
           </ul>
         </div>
     </nav>
-  
+
       <!-- メインコンテント -->
       <div class="container mt-3">
           {% block content %}{% endblock %}
       </div>
 
-      
-  
+      <!-- フッター -->
+      <footer class="footer">
+        <div class="col-md-12 mt-3 bg-dark" style="height:30px;">
+          <p class="text-light text-center">(c) inaba</p>
+        </div>
+      </footer>
+
 </body>
 </html>
