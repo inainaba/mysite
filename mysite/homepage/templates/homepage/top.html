@@ -4,7 +4,7 @@
 
 <h1 class="text-dark">Welcome</h1>
 <p class="text-dark">
-    welcome to inaba's portfolio site !<br> 
+    Welcome to inaba's portfolio site !<br> 
     This site is written in Django.
 </p>
 <div container>
@@ -18,17 +18,42 @@
                         </div>
                         <div class="col-md-9">
                             <ul class="list-group" >
-                                <li class="list-group-item">{{ myinfo.name }}
-                                <li class="list-group-item">{{ myinfo.selling_point }}</li>
-                                <li class="list-group-item">Twitter : <a href="{{ myinfo.twitter }}">{{ myinfo.twitter }}</a><br>
-                                GitHub : <a href="{{ myinfo.github }}">{{ myinfo.github }}</a></li>
+                                <li class="list-group-item">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-2">Name : </div>
+                                            <div class="col-md-10">{{ myinfo.name }}</div>
+                                        </div>
+                                    </div>
+                                <li class="list-group-item">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-2">Skill : </div>
+                                            <div class="col-md-10">{{ myinfo.selling_point }}</div>
+                                        </div>
+                                    </div>
+                                <li class="list-group-item">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-2">Twitter : </div>
+                                            <div class="col-md-10"><a href="{{ myinfo.twitter }}">{{ myinfo.twitter }}</a></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">GitHub : </div>
+                                            <div class="col-md-10"><a href="{{ myinfo.github }}">{{ myinfo.github }}</a></div>
+                                        </div>
+                                    </div>
                             </ul>
                             
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="card-text">ああああ</p>
+                            <ul class="list-group mt-3">
+                                <li class="list-group-item">
+                                    <p class="card-text ">{{ myinfo.detail}}</p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
