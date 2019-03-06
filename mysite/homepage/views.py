@@ -5,10 +5,6 @@ from .models import *
 
 class Top(generic.TemplateView):
     template_name = "homepage/top.html"
-    
-
-class Myinfo(generic.TemplateView):
-    template_name = "homepage/myinfo.html"
     model = Myinfo
 
     def get_context_data(self, **kwargs):
@@ -21,6 +17,7 @@ class Myblog(generic.ListView):
     template_name = "homepage/myblog.html"
     model = Blog
     context_object_name = "blogs"
+
 
 class Works(generic.ListView):
     template_name = "homepage/works.html"

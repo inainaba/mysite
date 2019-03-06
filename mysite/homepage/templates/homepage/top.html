@@ -1,5 +1,31 @@
 {% extends "homepage/base.html" %}
 
-{% block tron %}
+{% block content %}
 
+<h1 class="text-dark">Welcome</h1>
+<p class="text-dark">
+    welcome to inaba's portfolio site !<br> 
+    This site is written in Django.
+</p>
+<div container>
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="card md-5  ">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{ myinfo.picture.url }}" class="card-img mb-2">
+                        </div>
+                        <div class="col-md-9">
+                            <p>{{ myinfo.name }}</p>
+                            <p>{{ myinfo.selling_point }}</p>
+                            <p>Twitter : <a href="{{ myinfo.twitter }}">{{ myinfo.twitter }}</a></p>
+                            <p>GitHub : <a href="{{ myinfo.github }}">{{ myinfo.github }}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

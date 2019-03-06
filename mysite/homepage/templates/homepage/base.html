@@ -13,8 +13,10 @@
         integrity="sha384-CSpejLAxvQjhYnaGctk31dTIAVVJ37ll9TXZ5+siSJ/ZYHLO6/Ae3wBxMkkeePta" crossorigin="anonymous">
     <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.print.css"
         integrity="sha384-z97gwhg6eih9y0LEKeeKhp3kzktXuksd8JpECb6SWwru2UVRSD3KgsyEAwCXzTb1"crossorigin="anonymous" media='print' >
+      
       <title>title</title>
     {% load static %}
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
     <style type="text/css">
       body { background-image: url({% static 'homepage/b071.jpg' %});}
     </style>
@@ -43,8 +45,8 @@
 
     
    <!-- ナビバー -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'homepage:top' %}">ホームページ</a>
+    <nav class="navbar navbar-expand-md navbar-light ">
+        <a class="navbar-brand" href="{% url 'homepage:top' %}">Portfolio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -52,9 +54,6 @@
         <!--ナビゲーション-->
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li>
-                <a class="nav-item nav-link " href="{% url 'homepage:myinfo' %}">info</a>
-            </li>
             <li>
                 <a class="nav-item nav-link " href="{% url 'homepage:myblog' %}">blog</a>
             </li>
@@ -72,10 +71,8 @@
       </div>
 
       <!-- フッター -->
-      <footer class="footer">
-        <div class="col-md-12 mt-3 bg-dark" style="height:30px;">
+      <footer class="footer bg-dark">
           <p class="text-light text-center">(c) inaba</p>
-        </div>
       </footer>
 
 </body>
