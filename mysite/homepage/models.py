@@ -2,6 +2,9 @@ from django.db import models
 
 from stdimage.models import StdImageField 
 
+from django.utils.html import mark_safe
+from markdown import markdown
+
 """ 自分の情報 """
 class Myinfo(models.Model):
     name = models.CharField("名前",max_length=30)
@@ -26,7 +29,7 @@ class Myinfo(models.Model):
 class Blog(models.Model):
     title = models.CharField("タイトル",max_length=100)
     text = models.TextField("本文")
-    is_public = models.BooleanField(default=True)
+    is_public = models.BooleanField(default=False)
     date_birth = models.DateField(auto_now_add=True)
     date_update = models.DateField(auto_now=True)
     picture = StdImageField("画像",upload_to='media/blogs', blank=True, variations={
@@ -34,6 +37,9 @@ class Blog(models.Model):
         'thumbnail': (100, 100, True),
         'medium': (300, 200),
     })
+
+    def get_message_as_markdown(self):
+        return mark_safe(markdown(self.text, safe_mode='escape'))
 
     def __str__(self):
         return self.title
@@ -52,7 +58,8 @@ class Work(models.Model):
     title = models.CharField("webアプリ名",max_length=100)
     text = models.TextField("説明")
     page = models.URLField("URL")
-    is_public = models.BooleanField(default=True)
+    is_public = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False)
     date_birth = models.DateField(auto_now_add=True)
     date_update = models.DateField(auto_now=True)
     subject = models.ForeignKey(Subject,on_delete=models.CASCADE)
@@ -61,6 +68,9 @@ class Work(models.Model):
         'thumbnail': (100, 100, True),
         'medium': (300, 200),
     })
+
+    def get_message_as_markdown(self):
+        return mark_safe(markdown(self.text, safe_mode='escape'))
 
     def __str__(self):
         return self.title

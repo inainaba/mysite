@@ -1,10 +1,67 @@
 {% extends "homepage/base.html" %}
 
 {% block content %}
-This is works-page
+<h1 class="text-dark">Works</h1>
+<p class="text-dark">
+    This is the portfolio page
+</p>
 
-{% for w in works %}
-{{ w }}
+{% for work in works %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card md-5 mt-3" style="background: rgba(255, 255, 255, 0.6);">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                    <img src="{{ work.picture.url }}" class="card-img mb-2">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="list-group">
+                                    <div class="list-group-item">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-2">AppName : </div>
+                                                <div class="col-md-10">{{ work }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-2">URL : </div>
+                                                <div class="col-md-10"><a href="{{ work.page }}" >{{ work.page }}</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item">
+                                        <div class="container">
+                                            <div class="row">
+                                                {% if work.is_active == True %}
+                                                    <div class="col-md-10">Active</div>
+                                                {% else %}
+                                                    <div class="col-md-10">Inactive</div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="list-group mt-3">
+                                    <li class="list-group-item">
+                                        <p class="card-text ">{{ work.text }}</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endfor %}
 
 {% endblock %}

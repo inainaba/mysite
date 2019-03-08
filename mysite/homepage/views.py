@@ -18,8 +18,14 @@ class Myblog(generic.ListView):
     model = Blog
     context_object_name = "blogs"
 
+    def get_queryset(self):
+        return super().get_queryset().filter(is_public=True).order_by('-date_birth')
+
 
 class Works(generic.ListView):
     template_name = "homepage/works.html"
     model = Work
     context_object_name = "works"
+
+    def get_queryset(self):
+        return super().get_queryset().filter(is_public=True).order_by('-date_birth')
