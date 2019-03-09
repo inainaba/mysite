@@ -1,10 +1,24 @@
 {% extends "homepage/base.html" %}
 
 {% block content %}
-This is myblog-page
-
-{% for b in blogs %}
-{{ b }}
+<h1 class="text-dark">Works</h1>
+<p class="text-dark">
+    This is the portfolio page
+</p>
+{% for blog in blogs%}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card md-5 mt-5">
+                    <img class="card-img-top" src="{{ blog.picture.url }}">
+                    <div class="card-body">
+                        <div class="card-title">{{ blog }}</div>
+                        <div class="card-subtitle">{{ blog.date_birth }}</div>
+                        <div class="card-text mt-3">{{ blog.get_message_as_markdown }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endfor %}
-
 {% endblock %}
