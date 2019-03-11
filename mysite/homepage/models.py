@@ -43,6 +43,9 @@ class Blog(models.Model):
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        ordering = ("-date_birth",)
 
 
 """ ジャンル """
@@ -74,3 +77,6 @@ class Work(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ("-date_birth",)

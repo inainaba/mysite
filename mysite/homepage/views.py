@@ -10,6 +10,8 @@ class Top(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["myinfo"] = self.model.objects.all()[0]
+        context["works"] = Work.objects.all()
+        context["blogs"] = Blog.objects.all()
         return context
 
 
@@ -18,7 +20,6 @@ class Myblog(PaginationMixin, generic.ListView):
     model = Blog
     context_object_name = "blogs"
     paginate_by = 3
-    ordering = "-date_birth"
     
     def get_queryset(self):
         return super().get_queryset().filter(is_public=True)
@@ -29,7 +30,6 @@ class Works(PaginationMixin, generic.ListView):
     model = Work
     context_object_name = "works"
     paginate_by = 5
-    ordering = "-date_birth"
 
     def get_queryset(self):
         return super().get_queryset().filter(is_public=True)
