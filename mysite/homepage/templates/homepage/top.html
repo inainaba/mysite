@@ -4,20 +4,20 @@
 
 <h1 class="text-dark">Welcome</h1>
 <p class="text-dark">
-    Welcome to inaba's portfolio site !<br> 
+    Welcome to inaba's portfolio site !<br>
     This site is written in Django.
 </p>
 <div container>
     <div class="row">
         <div class="col-md-12 ">
             <div class="card md-5 " style="background: rgba(255, 255, 255, 0.6);">
-                <div class="card-body" >
+                <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
                             <img src="{{ myinfo.picture.url }}" class="card-img mb-2">
                         </div>
                         <div class="col-md-9">
-                            <ul class="list-group" >
+                            <ul class="list-group">
                                 <li class="list-group-item">
                                     <div class="container">
                                         <div class="row">
@@ -36,15 +36,17 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-2">Twitter : </div>
-                                            <div class="col-md-10"><a href="{{ myinfo.twitter }}">{{ myinfo.twitter }}</a></div>
+                                            <div class="col-md-10"><a
+                                                    href="{{ myinfo.twitter }}">{{ myinfo.twitter }}</a></div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-2">GitHub : </div>
-                                            <div class="col-md-10"><a href="{{ myinfo.github }}">{{ myinfo.github }}</a></div>
+                                            <div class="col-md-10"><a href="{{ myinfo.github }}">{{ myinfo.github }}</a>
+                                            </div>
                                         </div>
                                     </div>
                             </ul>
-                            
+
                         </div>
                     </div>
                     <div class="row">
@@ -61,16 +63,45 @@
         </div>
     </div>
 </div>
+
 <h1 class="text-dark mt-5">Works</h1>
 <p class="text-dark">
     I'd like to make lots of Web-applications !
 </p>
-
+<div class="container">
+    <div class="row">
+        {% for work in works %}
+            <div class="col-md-4">
+                <div class="card" style="background: rgba(255, 255, 255, 0.5);">
+                    <img class="card-img-top" src="{{ work.picture.url }}">
+                    <div class="card-body" >
+                        <div class="card-title">{{work}}</div>
+                        <div class="card-item"><a href="{{ work.page }}">{{ work.page }}</a></div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 <h1 class="text-dark mt-5">Blogs</h1>
 <p class="text-dark">
     I want to know the new values ​​and expressions.<br>
 </p>
-
+<div class="container">
+    <div class="row">
+        {% for blog in blogs %}
+            <div class="col-md-4">
+                <div class="card" style="background: rgba(255, 255, 255, 0.5);">
+                    <img class="card-img-top" src="{{ blog.picture.url }}">
+                    <div class="card-body" >
+                        <div class="card-title">{{blog}}</div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+    
 
 {% endblock %}
