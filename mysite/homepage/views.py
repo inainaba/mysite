@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import *
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-
+from pure_pagination.mixins import PaginationMixin
 
 class Top(generic.TemplateView):
     template_name = "homepage/top.html"
@@ -14,21 +13,23 @@ class Top(generic.TemplateView):
         return context
 
 
-class Myblog(generic.ListView):
+class Myblog(PaginationMixin, generic.ListView):
     template_name = "homepage/myblog.html"
     model = Blog
     context_object_name = "blogs"
     paginate_by = 3
+    ordering = "-date_birth"
     
     def get_queryset(self):
-        return super().get_queryset().filter(is_public=True).order_by('-date_birth')
+        return super().get_queryset().filter(is_public=True)
 
 
-class Works(generic.ListView):
+class Works(PaginationMixin, generic.ListView):
     template_name = "homepage/works.html"
     model = Work
     context_object_name = "works"
     paginate_by = 5
+    ordering = "-date_birth"
 
     def get_queryset(self):
-        return super().get_queryset().filter(is_public=True).order_by('-date_birth')
+        return super().get_queryset().filter(is_public=True)
